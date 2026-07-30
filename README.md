@@ -48,7 +48,7 @@ Open `config.js`. Every setting is labelled. The main ones:
 | `countdownTarget` | Date/time the countdown counts down to |
 | `events[]` | The event cards (add/remove/reorder freely) |
 | `gallery` | Gallery subtitle + which 6 photos to use |
-| `venue` | Hotel name, address, map link, phone, features |
+| `venue` | Hotel name, address lines, map link + embed |
 | `media.musicOnByDefault` | `true` = music tries to start when invite opens |
 
 ### Dates
@@ -104,7 +104,10 @@ If you swap the video, also update `poster.jpg` (first frame) and
 `hero-last.jpg` (last frame) so the freeze effect looks seamless. Keep the video
 in a 9:16 shape (e.g. 720×1280) so it fills the screen without stretching.
 
-**Tip:** keep the video short (5–8 s) and compressed so it loads fast on phones.
+**Tip:** keep the video short (~3 s) and compressed so it loads fast on phones.
+The hero text/heart animation begins the moment the video finishes and freezes
+on its last frame, so a short clip means guests reach the reveal quickly. If your
+clip is longer, the reveal also auto-triggers after 3.5 s as a safety.
 
 ### Music → `assets/music/`
 - Replace `ambient.mp3` with any `.mp3` (keep the name, or update
@@ -124,10 +127,49 @@ site. Fonts are loaded from Google Fonts in the `<head>`.
 
 ---
 
+## 🖼 Hero heart photo
+
+The couple photo shown inside the gold heart on the hero is a single ready-made
+image: `assets/img/hero-heart.png` (with a smaller `.webp` beside it).
+
+To use a different couple photo, easiest options:
+1. Open `hero-heart.png` in any photo editor, and paste your photo *behind* the
+   gold heart outline (the transparent middle), then re-export as
+   `hero-heart.png`. Or
+2. Ask your designer for a "couple photo inside a gold heart frame, transparent
+   background PNG" and save it as `assets/img/hero-heart.png`.
+
+Keep it a tall PNG with a transparent background so it floats over the video.
+
+## ✨ Animations (GSAP)
+
+The site uses **GSAP + ScrollTrigger** (loaded from a public CDN in `index.html`)
+for the letter-by-letter names, scroll reveals, parallax depth, countdown flip
+and card pops. You don't need to install anything — it loads automatically when
+the page is online. If the visitor is fully offline, the site still shows all
+content (animations simply don't run).
+
+## 🎞 Gallery slideshow & fullscreen
+
+- The 6 frames each run their **own** slideshow on independent timers, so they
+  never all change at once (always looks alive).
+- **Tap any photo** to open it fullscreen; swipe left/right or use the arrows to
+  browse, tap ✕ or the backdrop to close.
+- All 6 gallery photos are used across every frame, so add variety by giving all
+  six files different images.
+
+## 🔤 Fonts
+
+Loaded from Google Fonts (in the `<head>`): **Cinzel** (headings),
+**Great Vibes** (names), **Cormorant Garamond** (body/timer),
+**Poppins** (buttons), **EB Garamond** (address).
+
 ## ✅ Built-in quality
 
+- Tuned for **390 × 844** phones — every section fits one screen, safe-area aware.
 - Works on all modern browsers + phones, tablets, desktop.
-- 9:16 layout, smooth 60fps scroll animations, parallax backgrounds.
+- Smooth 60fps GSAP scroll animations, layered parallax, floating gold particles.
+- Glassmorphism cards & buttons with gold accents (no solid black boxes).
 - Lazy-loaded images, compressed video (WebM + MP4), WebP photos with JPG
   fallback — fast on mobile data.
 - Respects "reduce motion" accessibility setting.

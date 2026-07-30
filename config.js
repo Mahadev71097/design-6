@@ -68,16 +68,15 @@ window.WEDDING = {
     ],
     mapLink:  "https://www.google.com/maps/search/?api=1&query=Taj+Yeshwantpur+Bengaluru+2275+Tumkur+Road",
     mapEmbed: "https://www.google.com/maps?q=Taj+Yeshwantpur+Bengaluru+2275+Tumkur+Road&output=embed",
-    features: [
-      { icon:"🚗", label:"Valet parking" },
-      { icon:"📍", label:"200 m from metro" },
-      { icon:"📞", label:"+91 98765 43210" },
-    ],
     footerTop:    "Together is our",
     footerScript: "favourite place to be",
   },
 
-  /* ---- MEDIA FILES (change only if you rename files) ---- */
+  /* ---- MEDIA FILES (change only if you rename files) ----
+     NOTE: the couple-in-heart image shown on the hero is a ready-made PNG at
+     assets/img/hero-heart.png (+ .webp). To use a different couple photo, either
+     replace hero-heart.png with your own transparent heart-framed cut-out, or
+     re-composite it (see README → "Hero heart photo"). */
   media: {
     heroVideoWebm: "assets/video/hero.webm",
     heroVideoMp4:  "assets/video/hero.mp4",
